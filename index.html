@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>eStamp India | Licensed Notary & Online Stamp Paper</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.96);
+    }
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+    .logo h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3c72, #2b4e8f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.3px;
+    }
+    .logo span {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: #2c5f8a;
+      display: block;
+      background: none;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      color: #2c5f8a;
+    }
+    .nav-links a {
+      margin-left: 32px;
+      text-decoration: none;
+      color: #1e293b;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, #0f2b3d, #1e4a76);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #334155;
+      max-width: 680px;
+      margin: 16px auto 0;
+    }
+    .badge {
+      background: #eef2ff;
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1e40af;
+      margin-bottom: 20px;
+    }
+
+    /* Products Grid */
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 48px 0 24px;
+      border-left: 5px solid #2563eb;
+      padding-left: 20px;
+    }
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 24px 20px 28px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.05);
+      transition: all 0.2s ease;
+      border: 1px solid #eef2ff;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+      border-color: #cbdffc;
+    }
+    .stamp-icon {
+      font-size: 3rem;
+      color: #2563eb;
+      margin-bottom: 18px;
+    }
+    .stamp-face-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .stamp-face-value small {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #475569;
+    }
+    .price {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin: 12px 0 6px;
+    }
+    .price small {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #4b5563;
+    }
+    .service-tag {
+      background: #e6f7ec;
+      color: #15803d;
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      margin: 12px 0 8px;
+    }
+    .btn-order {
+      background: #1e293b;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      width: 100%;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-order:hover {
+      background: #2563eb;
+      transform: scale(0.98);
+    }
+
+    /* Order Form */
+    .order-section {
+      background: linear-gradient(105deg, #f1f5f9 0%, #ffffff 100%);
+      border-radius: 44px;
+      padding: 40px 30px;
+      margin: 40px 0 40px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #0f172a;
+    }
+    input, select, textarea {
+      padding: 14px 16px;
+      border-radius: 20px;
+      border: 1.5px solid #cbd5e1;
+      font-family: 'Inter', sans-serif;
+      transition: 0.2s;
+      background: white;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+    .full-width {
+      grid-column: span 2;
+    }
+    .submit-btn {
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 48px;
+      cursor: pointer;
+      transition: 0.2s;
+      margin-top: 12px;
+      width: 100%;
+    }
+    .submit-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+    .legal-note {
+      margin-top: 30px;
+      background: #fef9e3;
+      padding: 18px 22px;
+      border-radius: 20px;
+      border-left: 6px solid #eab308;
+    }
+    .disclaimer {
+      font-size: 0.85rem;
+      color: #4b5563;
+      background: #f1f5f9;
+      border-radius: 24px;
+      padding: 28px 24px;
+      margin: 30px 0 40px;
+      line-height: 1.5;
+    }
+    footer {
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding: 30px 0 28px;
+      font-size: 0.85rem;
+      color: #475569;
+    }
+    @media (max-width: 700px) {
+      .nav-flex {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .nav-links a {
+        margin: 0 16px;
+      }
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      .full-width {
+        grid-column: span 1;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+    .price-note {
+      font-size: 0.75rem;
+      color: #4b5563;
+      margin-top: 6px;
+    }
+    hr {
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">
+      <h1>eStamp <span style="color:#1e3c72; font-size:0.9rem;">for License</span></h1>
+      <span>Govt. Authorised e-Stamp Partner</span>
+    </div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#products">Stamps & Prices</a>
+      <a href="#order">Order Now</a>
+      <a href="#disclaimer">Legal</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge"><i class="fas fa-gavel"></i> Licensed Notary Service Included</div>
+    <h2>Instant e-Stamp Paper <br>with Digital Notary Attestation</h2>
+    <p>100% legal, non-judicial e-stamp paper generated by SHCIL authorised platform. Notary certification integrated for agreements, affidavits, rent deeds and more.</p>
+  </div>
+
+  <!-- Products Section -->
+  <div id="products">
+    <div class="section-title"><i class="fas fa-stamp"></i> Choose your e-Stamp denomination</div>
+    <div class="stamp-grid" id="productGrid">
+      <!-- 50 rupee stamp -->
+      <div class="card" data-value="50" data-price="140">
+        <div class="stamp-icon"><i class="fas fa-receipt"></i></div>
+        <div class="stamp-face-value">₹50 <small>e-Stamp Paper</small></div>
+        <div class="price">₹140 <small> incl. notary & GST</small></div>
+        <div class="service-tag"><i class="fas fa-check-circle"></i> + Notary Certification</div>
+        <button class="btn-order order-btn" data-face="50" data-total="140">Select & Order <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <!-- 100 rupee stamp -->
+      <div class="card" data-value="100" data-price="220">
+        <div class="stamp-icon"><i class="fas fa-file-invoice"></i></div>
+        <div class="stamp-face-value">₹100 <small>e-Stamp Paper</small></div>
+        <div class="price">₹220 <small> incl. notary & GST</small></div>
+        <div class="service-tag"><i class="fas fa-check-circle"></i> + Notary Certification</div>
+        <button class="btn-order order-btn" data-face="100" data-total="220">Select & Order <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <!-- 500 rupee stamp -->
+      <div class="card" data-value="500" data-price="900">
+        <div class="stamp-icon"><i class="fas fa-file-contract"></i></div>
+        <div class="stamp-face-value">₹500 <small>e-Stamp Paper</small></div>
+        <div class="price">₹900 <small> incl. notary & GST</small></div>
+        <div class="service-tag"><i class="fas fa-check-circle"></i> + Notary Certification</div>
+        <button class="btn-order order-btn" data-face="500" data-total="900">Select & Order <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <!-- 1000 rupee stamp -->
+      <div class="card" data-value="1000" data-price="1200">
+        <div class="stamp-icon"><i class="fas fa-gavel"></i></div>
+        <div class="stamp-face-value">₹1000 <small>e-Stamp Paper</small></div>
+        <div class="price">₹1200 <small> incl. notary & GST</small></div>
+        <div class="service-tag"><i class="fas fa-check-circle"></i> + Notary Certification</div>
+        <button class="btn-order order-btn" data-face="1000" data-total="1200">Select & Order <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <p class="price-note" style="text-align:center; margin-top:-20px;"><i class="fas fa-info-circle"></i> Prices include non-judicial e‑stamp fee + notary attestation + service charges. GST as applicable.</p>
+  </div>
+
+  <!-- Order Form Section -->
+  <div id="order" class="order-section">
+    <h3 style="font-size:1.8rem; font-weight:700; margin-bottom:18px;"><i class="fas fa-file-signature"></i> Place your order</h3>
+    <p style="margin-bottom:28px;">Fill the details and our executive will generate e-Stamp & notary within 1 working hour. Delivered on email/WhatsApp.</p>
+    
+    <form id="orderForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label><i class="fas fa-user"></i> Full name (as per ID)</label>
+          <input type="text" id="fullname" placeholder="e.g. Rajesh Kumar Sharma" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-envelope"></i> Email address</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-phone-alt"></i> WhatsApp / Mobile</label>
+          <input type="tel" id="mobile" placeholder="+91 9876543210" required>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-stamp"></i> Select Stamp value</label>
+          <select id="stampSelect" required>
+            <option value="50|140">₹50 e-Stamp + Notary – ₹140</option>
+            <option value="100|220">₹100 e-Stamp + Notary – ₹220</option>
+            <option value="500|900">₹500 e-Stamp + Notary – ₹900</option>
+            <option value="1000|1200">₹1000 e-Stamp + Notary – ₹1200</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-sort-numeric-up"></i> Quantity (max 20)</label>
+          <input type="number" id="quantity" min="1" max="20" value="1" step="1">
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-comment"></i> Purpose (optional)</label>
+          <input type="text" id="purpose" placeholder="Rent agreement / Affidavit / Power of attorney">
+        </div>
+        <div class="form-group full-width">
+          <label><i class="fas fa-check-circle"></i> Total Payable (INR)</label>
+          <input type="text" id="totalAmount" readonly style="background:#eef2ff; font-weight:700; font-size:1.2rem;">
+        </div>
+      </div>
+      <div class="legal-note" style="margin:20px 0 10px;">
+        <i class="fas fa-shield-alt"></i> <strong>Legal Compliance:</strong> By proceeding you confirm that e-stamp will be used for lawful purposes. The notary will verify identity through digital means. eStamp is generated under Indian Stamp Act, 1899.
+      </div>
+      <button type="submit" class="submit-btn"><i class="fas fa-lock"></i> Proceed to Place Order</button>
+    </form>
+    <p style="font-size:0.8rem; text-align:center; margin-top:18px;">✔️ Instant acknowledgement on email. ✔️ Payment support: UPI / Netbanking after order confirmation.</p>
+  </div>
+
+  <!-- Disclaimer & legal use section -->
+  <div id="disclaimer" class="disclaimer">
+    <div style="display: flex; gap:15px; align-items: center; flex-wrap:wrap;">
+      <div><i class="fas fa-scale-balanced" style="font-size:2.2rem; color:#2563eb;"></i></div>
+      <div>
+        <h4 style="margin-bottom:8px;">LEGAL DISCLAIMER & TERMS OF USE</h4>
+        <p>eStamp for License is an online facilitation portal integrated with SHCIL (Stock Holding Corporation of India Limited) for non-judicial e-stamp paper. We are an authorised intermediary providing notary attestation & stamp generation services. The client must ensure that the stamp paper purchased is used only for legal documents as per Indian laws. We do not hold liability for misuse of stamp paper. Notary certification is performed by licensed notary officers through remote/video verification where applicable. <br><br>
+        <strong>Important:</strong> e-stamp paper generated carries a unique UID which can be verified on the official SHCIL website. All sales are final after generation. Delivery of e-stamp PDF is made within 2-4 hours via email. For disputes, subject to Delhi jurisdiction. By using our services you agree to the <a href="#" style="color:#2563eb;">Terms & Conditions</a>.</p>
+        <p style="margin-top:14px;"><i class="fas fa-gavel"></i> <strong>Use for License & Registration:</strong> Our eStamp papers are widely accepted for RTO licenses, trade licenses, company registration, property documents, affidavits and all state government departments.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 eStamp for License — Authorised e-Stamp & Digital Notary Partner<br>
+  <i class="fas fa-certificate"></i> SHCIL empanelled | Verify your stamp at shcilestamp.com</p>
+  <p style="margin-top:12px;"><strong>Support:</strong> 1800-309-4477 | <i class="fas fa-envelope"></i> legal@estampforlicense.in</p>
+</footer>
+
+<script>
+  // Auto-update total amount on quantity change or stamp selection
+  const stampSelect = document.getElementById('stampSelect');
+  const quantityInput = document.getElementById('quantity');
+  const totalAmountInput = document.getElementById('totalAmount');
+
+  function updateTotal() {
+    const selected = stampSelect.value; // format "faceValue|price"
+    if(!selected) return;
+    const [face, unitPrice] = selected.split('|');
+    let qty = parseInt(quantityInput.value);
+    if(isNaN(qty) || qty < 1) qty = 1;
+    if(qty > 20) qty = 20;
+    quantityInput.value = qty;
+    const total = parseInt(unitPrice) * qty;
+    totalAmountInput.value = `₹ ${total.toLocaleString('en-IN')}`;
+  }
+
+  stampSelect.addEventListener('change', updateTotal);
+  quantityInput.addEventListener('input', updateTotal);
+  updateTotal();
+
+  // handle order button from product cards: prefill stamp selection
+  const orderBtns = document.querySelectorAll('.order-btn');
+  orderBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const face = btn.getAttribute('data-face');
+      let priceValue = '';
+      if(face === '50') priceValue = '50|140';
+      else if(face === '100') priceValue = '100|220';
+      else if(face === '500') priceValue = '500|900';
+      else if(face === '1000') priceValue = '1000|1200';
+      if(priceValue) {
+        stampSelect.value = priceValue;
+        updateTotal();
+        // scroll to order form
+        document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Form submission (demo - collect data without actual backend; sends lead simulation)
+  const form = document.getElementById('orderForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('fullname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const stampOpt = stampSelect.options[stampSelect.selectedIndex]?.text || '';
+    const qty = quantityInput.value;
+    const total = totalAmountInput.value;
+    const purpose = document.getElementById('purpose').value;
+    
+    if(!name || !email || !mobile) {
+      alert('Please fill in name, email and mobile number.');
+      return;
+    }
+    if(!email.includes('@')) {
+      alert('Enter a valid email address.');
+      return;
+    }
+
+    // Demo: display order summary and send to console (simulate order placement)
+    const orderMessage = `📢 NEW eSTAMP NOTARY ORDER\nName: ${name}\nEmail: ${email}\nMobile: ${mobile}\nStamp: ${stampOpt}\nQuantity: ${qty}\nTotal: ${total}\nPurpose: ${purpose || 'Not specified'}`;
+    console.log(orderMessage);
+    // Show confirmation
+    alert(`✅ Order received!\n\nStamp: ${stampOpt}\nQuantity: ${qty}\nTotal: ${total}\n\nOur executive will contact you within 30 minutes on ${mobile} / ${email} for payment & verification.\n\nNote: This is a demo lead interface. In production, data would be stored securely.`);
+    // optional: reset form ? not forced
+    // We can keep fields but optionally reset?
+    // For user experience, we clear simple optional message but keep data.
+    // document.getElementById('fullname').value = '';
+    // ... but we don't clear to avoid mistake.
+  });
+</script>
+
+<!-- additional inline style for consistent spacing -->
+</body>
+</html>
