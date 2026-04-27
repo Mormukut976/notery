@@ -588,9 +588,6 @@
     const total = updateTotal(); // get current total
     currentTotal = total;
     // generate QR for this amount
-    const qrUrl = generateUPIQR(total);
-    qrContainer.innerHTML = `<img src="${qrUrl}" alt="UPI QR Code" style="width:180px; height:180px;">`;
-    qrAmountSpan.innerText = total;
 
     // Hide form, show payment
     form.style.display = 'none';
